@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
+  /* Brand Colors - Edmund Bogen */
+  --brand-navy: #1a3e5c;
+  --brand-blue: #00a8e1;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+  --brand-gray: #f4f4f4;
+  --brand-gray-dark: #e8e8e8;
+  --text-dark: #333333;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #333333;
 }
 
 @theme inline {
+  /* Brand Colors */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-white: var(--brand-white);
+  --color-brand-black: var(--brand-black);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-gray-dark: var(--brand-gray-dark);
+  --color-text-dark: var(--text-dark);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), 'Montserrat', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Excel-inspired grid styling */
+.excel-grid {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.excel-grid th,
+.excel-grid td {
+  border: 1px solid var(--brand-gray-dark);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.excel-grid th {
+  background-color: var(--brand-navy);
+  color: var(--brand-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+.excel-grid tbody tr:nth-child(even) {
+  background-color: var(--brand-gray);
+}
+
+.excel-grid tbody tr:hover {
+  background-color: rgba(0, 168, 225, 0.1);
+}
+
+.excel-cell-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+
+.excel-cell-input:focus {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: -2px;
+  background-color: white;
 }
